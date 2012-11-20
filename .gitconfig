@@ -1,0 +1,12 @@
+[user]
+    name = Alexis 'Horgix' Chotard
+    email = alexis.horgix.chotard@gmail.com
+[http]
+    postBuffer = 524288000
+
+[color]
+    ui = true
+
+[alias]
+    st = status
+    poule = pull
