@@ -1,0 +1,98 @@
+! ==================
+!   Global Settings
+! ==================
+
+!  - pseudo transparency
+URxvt*shading:              30
+URxvt*inheritPixmap:        true
+!URxvt*transparent:          true
+!URxvt*tintColor:            #AAAAAA
+
+! - Default geometry in number of characters
+! - [colums]x[lines]
+URxvt*geometry:             80x30
+
+! - Fonts
+URxvt*font:                 xft:DejaVu Sans Mono:size=8
+!URxvt*boldfont:             xft:DejaVu Sans Mono:bold:size=10
+!URxvt.boldItalicFont:       xft:DejaVu Sans Mono:italic:size=10
+!URxvt*font:                 xft:Iconsolata:size=14
+
+! - Scroll Bar
+URxvt*saveLines:            100000
+URxvt*scrollBar:            false
+!URxvt*scrollBar_right:      true
+!URxvt*scrollBar_floating:   true
+!URxvt*scrollColor:          #285577
+!URxvt*scrollstyle:          plain
+
+! ================
+!  Per extensions
+! ===============
+!lperl-ext-common:      default
+!Urxvt.perl-ext:             font-size
+!Urxvt.keysym.C-equal:       perl:font:increase
+!Urxvt.keysym.C-minus:       perl:font:increase
+URxvt.perl-ext-common:      font-size
+URxvt.keysym.C-Up:          perl:font-size:increase
+URxvt.keysym.C-Down:        perl:font-size:decrease
+URxvt.keysym.C-S-Up:        perl:font-size:incglobal
+URxvt.keysym.C-S-Down:      perl:font-size:decglobal
+
+! ==============
+!     Colors
+! ==============
+
+! -- Background color
+URxvt*background:           black
+
+! -- Foreground color
+URxvt*foreground:           white
+
+! - Cursor color
+URxvt*cursorColor:          #DCDCCC
+
+
+! - 8/16 Colors
+/*
+URxvt*color0: #101010
+URxvt*color1: #f13a21
+URxvt*color2: #93f91d
+URxvt*color3: #ffd00a
+URxvt*color4: #004f9e
+URxvt*color5: #ec0048
+URxvt*color6: #2aa7e7
+URxvt*color7: #f2f2f2
+URxvt*color8: #1d202f
+URxvt*color9: #ff361e
+URxvt*color10: #ffc005
+URxvt*color11: #93ff00
+URxvt*color12: #0071ff
+URxvt*color13: #ef0051
+URxvt*color14: #4bb8fd
+URxvt*color15: #a020f0
+!*/
+
+/*URxvt*loginShell:           true
+URxvt*scrollBar:            false
+
+URxvt*saveLines:            1165535
+URxvt*cursorBlink:          false
+URxvt*urgentOnBell:         true
+URxvt*override-redirect:    false
+URxvt*borderLess:           false
+URxvt*internalBorder:       0
+URxvt*externalBorder:       0
+
+URxvt.font: xft:monaco:size=10
+
+!- Urvt.perl-ext-common:       ...,font-size
+Urxvt.keysym.Control-Up:         ls
+!- Urxvt.keysym.C-Down:      perl:font-size:decglobal
+
+URxvt.perl-lib:                     xft:monaco
+!- URxvt.keysym.Control-Up:      perl:font:increment
+!- URxvt.keysym.Control-Down:    perl:font:decrement
+
+URxvt.perl-ext-common:  default,font
+*/
