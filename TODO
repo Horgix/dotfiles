@@ -1,3 +1,9 @@
 [ ] Add shell-config
 [ ] Add vim config
 [ ] Create and add an install script
+
+[/] ZSH
+    [ ] Add directory informations ? (number of files, size, etc...)
+    [ ] Show background job count ?
+    [ ] Fix SHLVL : Minus one ? Hostname dependant ?
+    [ ] Remove tty number ?
