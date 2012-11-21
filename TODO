@@ -7,3 +7,5 @@
     [ ] Show background job count ?
     [ ] Fix SHLVL : Minus one ? Hostname dependant ?
     [ ] Remove tty number ?
+    [ ] Return value : impossible to compute its length ?
+    [ ] Move the return value just before WD when the problem is solved

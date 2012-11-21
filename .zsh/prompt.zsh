@@ -2,15 +2,6 @@
 # By Alexis 'Horgix' Chotard
 
 
-# VCS Support
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' actionformats \
-    '%F{14}%F{11}%b%F{11}|%F{9}%a%F{11}%f'
-zstyle ':vcs_info:*' formats \
-    '%F{14}%F{11}%b%F{14}%f'
-zstyle ':vcs_info:*' enable git hg
-
 # precmd : stuff that need to be refreshed before each prompt display
 precmd ()
 {
@@ -25,10 +16,7 @@ precmd ()
     SYSINFOS_FULL=$PRE_SYSINFOS$SYSINFOS$POST_SYSINFOS
 
     # FULL Working directory with fancy stuff
-    WD_FULL=$PRE_WD$WD$POST_WD
-
-    # RET : empty if return value is 0, value else
-    RET="%(?..%?)"
+    WD_FULL=$RET$PRE_WD$WD$POST_WD
 
     # GIT Infos : currently only the current branch name
     GIT_INFOS=${vcs_info_msg_0_}
@@ -69,6 +57,15 @@ setprompt ()
 {
     setopt prompt_subst
     setopt extended_glob
+    # VCS Support
+    autoload -Uz vcs_info
+
+    # Format the vcs infos to only get the git branch
+    zstyle ':vcs_info:*' actionformats \
+        '%F{14}%F{11}%b%F{11}|%F{9}%a%F{11}%f'
+    zstyle ':vcs_info:*' formats \
+        '%F{14}%F{11}%b%F{14}%f'
+    zstyle ':vcs_info:*' enable git hg
 
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
@@ -80,6 +77,19 @@ setprompt ()
     UR_CORNER=${altchar[k]:--}
     LL_CORNER=${altchar[m]:--}
     LR_CORNER=${altchar[j]:--}
+
+    ###
+    # See if we can use colors.
+
+    autoload colors zsh/terminfo
+    if [[ "$terminfo[colors]" -ge 8 ]]; then
+        colors
+    fi
+    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+        eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+    done
+    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
 
     # Working directory
     WD="%~"
@@ -94,6 +104,9 @@ setprompt ()
     PRE_SYSINFOS="$HBAR("
     # Post system infos : characters to display after sysinfos
     POST_SYSINFOS=")$HBAR$UR_CORNER"
+
+    # RET : empty if return value is 0, value else
+    RET="%(?..[%?]-)"
 
     # HOUR formated HOUR:MINUTES
     TIME="%D{%H:%M}"
