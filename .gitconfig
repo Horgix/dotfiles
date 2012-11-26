@@ -8,6 +8,7 @@
 [user]
     name = Alexis 'Horgix' Chotard
     email = alexis.horgix.chotard@gmail.com
+
 [http]
     postBuffer = 524288000
 
@@ -17,3 +18,5 @@
 [alias]
     st = status
     poule = pull
+
+# EOF
