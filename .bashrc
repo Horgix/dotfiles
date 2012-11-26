@@ -5,17 +5,17 @@
 # .bashrc for BASH
 # Loads every needed configuration file for bash
 
-for f in ~/.shell-config/*; do
-    source $f;
+for file in ~/.shell-config/*; do
+    source $file;
 done
 
-for f in ~/.bash/*; do
-    source $f;
+for file in ~/.bash/*; do
+    source $file;
 done
 
 if [ -d ~/.local.bash/ ]; then
-    for f in ~/.local.bash/*; do
-        source $f;
+    for file in ~/.local.bash/*; do
+        source $file;
     done
 fi
 
