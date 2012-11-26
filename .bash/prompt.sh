@@ -2,7 +2,7 @@
 # by Alexis 'Horgix' Chotard
 # https://bitbucket.org/Horgix/
 
-# prompt.sh for Bash
+# prompt.sh for BASH
 # Basic bash prompt with some colors
 
 bold='\[\e[1m\]'    # Enables bold
