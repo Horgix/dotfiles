@@ -2,15 +2,6 @@
 # By Alexis 'Horgix' Chotard
 
 
-# VCS Support
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' actionformats \
-    '%F{14}%F{11}%b%F{11}|%F{9}%a%F{11}%f'
-zstyle ':vcs_info:*' formats \
-    '%F{14}%F{11}%b%F{14}%f'
-zstyle ':vcs_info:*' enable git hg
-
 # precmd : stuff that need to be refreshed before each prompt display
 precmd ()
 {
@@ -21,14 +12,13 @@ precmd ()
     local TERMWIDTH
     (( TERMWIDTH = $COLUMNS - 1 ))
 
+    # System infos : username@hostname:tty(SHLVL)
+    SYSINFOS="%n@%M:%l(%L)"
     # FULL System informations with fancy stuff
     SYSINFOS_FULL=$PRE_SYSINFOS$SYSINFOS$POST_SYSINFOS
 
     # FULL Working directory with fancy stuff
-    WD_FULL=$PRE_WD$WD$POST_WD
-
-    # RET : empty if return value is 0, value else
-    RET="%(?..%?)"
+    WD_FULL=$RET$PRE_WD$WD$POST_WD
 
     # GIT Infos : currently only the current branch name
     GIT_INFOS=${vcs_info_msg_0_}
@@ -55,13 +45,14 @@ precmd ()
     # Truncates the working directory string
     WD_truncated="%$WD_NEWLEN<...<$WD%<<"
 
+    SYSINFOS="%B$PR_CYAN%n%b$PR_YELLOW@%B$PR_CYAN%M%b$PR_YELLOW:%l(%L)"
     # Refresh the old values and apply the SHIFTs on fancy stuff around it
-    WD_FULL=$SHIFT_IN$PRE_WD$SHIFT_OUT$WD_truncated$SHIFT_IN$POST_WD$SHIFT_OUT
-    SYSINFOS_FULL=$SHIFT_IN$PRE_SYSINFOS$SHIFT_OUT$SYSINFOS$SHIFT_IN$POST_SYSINFOS$SHIFT_OUT
+    WD_FULL=%b$PR_CYAN$SHIFT_IN$PRE_WD$SHIFT_OUT%B$PR_BLUE$WD_truncated%b$PR_CYAN$SHIFT_IN$POST_WD$SHIFT_OUT
+    SYSINFOS_FULL=$SHIFT_IN$PRE_SYSINFOS$SHIFT_OUT$SYSINFOS%b$PR_CYAN$SHIFT_IN$POST_SYSINFOS$SHIFT_OUT
 
     # RINFOS ; Random informations displayed on the RPROMPT
-    RINFOS_FULL="$RET$TIME $DATE$SHIFT_IN$LR_CORNER$SHIFT_OUT"
-    SECOND_LINE="$SHIFT_IN$LL_CORNER$SHIFT_OUT$GIT_INFOS> "
+    SECOND_LINE="$SHIFT_IN$LL_CORNER$SHIFT_OUT$GIT_INFOS%B$PR_BLUE> %b"
+    RINFOS_FULL="%B%S$PR_RED$RET%s$PR_GREEN$TIME %b$PR_YELLOW$DATE%b$PR_CYAN$SHIFT_IN$LR_CORNER$SHIFT_OUT$PR_NO_COLOR"
 }
 
 # Stuff that only needs to be set once (when a new instance of zsh is ran)
@@ -69,6 +60,15 @@ setprompt ()
 {
     setopt prompt_subst
     setopt extended_glob
+    # VCS Support
+    autoload -Uz vcs_info
+
+    # Format the vcs infos to only get the git branch
+    zstyle ':vcs_info:*' actionformats \
+        '%F{13}%F{13}%b%F{11}|%F{9}%a%F{11}%f'
+    zstyle ':vcs_info:*' formats \
+        '%F{13}%F{5}#%b%F{14}%f'
+    zstyle ':vcs_info:*' enable git hg
 
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
@@ -81,6 +81,20 @@ setprompt ()
     LL_CORNER=${altchar[m]:--}
     LR_CORNER=${altchar[j]:--}
 
+    ###
+    # See if we can use colors.
+
+    autoload colors zsh/terminfo
+    if [[ "$terminfo[colors]" -ge 8 ]]; then
+        colors
+    fi
+    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        #eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+        #eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+        eval PR_$color='%{$fg[${(L)color}]%}'
+    done
+    PR_NO_COLOR="%{$terminfo[sgr0]%}"
+
     # Working directory
     WD="%~"
     # Pre working directory : characters to display before wd
@@ -88,12 +102,13 @@ setprompt ()
     # Post working directory : characters to display after wd
     POST_WD=")$HBAR"
 
-    # System infos : username@hostname:tty(SHLVL)
-    SYSINFOS="%n@%M:%l(%L)"
     # Pre system infos : characters to display before sysinfos
     PRE_SYSINFOS="$HBAR("
     # Post system infos : characters to display after sysinfos
     POST_SYSINFOS=")$HBAR$UR_CORNER"
+
+    # RET : empty if return value is 0, value else
+    RET="%(?..[%?]%s~)"
 
     # HOUR formated HOUR:MINUTES
     TIME="%D{%H:%M}"

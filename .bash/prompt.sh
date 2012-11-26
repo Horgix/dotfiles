@@ -1,28 +1,30 @@
-# prompt.sh
-# My extravagant multi-line bash prompt.
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
 
-# Enables/disables bold
-bold='\[\e[1m\]'
-nobold='\[\e[22m\]'
+# prompt.sh for BASH
+# Basic bash prompt with some colors
 
-# Resets all styles
-reset='\[\e[0m\]'
+bold='\[\e[1m\]'    # Enables bold
+nobold='\[\e[22m\]' # Disables bold
 
-# n = \n
-n='\n'
+reset='\[\e[0m\]'   # Resets all styles
 
-# hc = Host color
-# sc = Separator color
-# dc = Dir color
-# pc = Prompt color
-hc='\[\e[31m\]'
-sc='\[\e[32m\]'
-dc='\[\e[33m\]'
-pc='\[\e[34m\]'
+hc='\[\e[36m\]'     # Host color
+sc='\[\e[33m\]'     # Separator color
+wc='\[\e[34m\]'     # Working Directory color
+gc='\[\e[32m\]'     # Global Informations color
+pc='\[\e[34m\]'     # Prompt color
 
-l2="$pc> $reset"
+sysinfos="$bold$hc\u$sc@$hc\H"
+timeinfos="$nobold$gc [\D{%H:%M}]"
+wd="$bold$wc\w"
+secondline="$pc> $reset"
 
-l1_start="$bold$hc\u$sc@$hc\H $dc\w"
-l1_end="$pc\D{%y-%m-%d %H:%M:%S}"
+export PS1="
+$sysinfos\
+$timeinfos\
+$wd
+$secondline"
 
-export PS1="$n$l1_start $l1_end$n$l2"
+# EOF
