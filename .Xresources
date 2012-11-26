@@ -1,1 +1,10 @@
-#include ".xconf/main.xconf"
+! HGXonf
+! by Alexis 'Horgix' Chotard
+! https://bitbucket.org/Horgix/
+
+! .Xresources for X
+! Loads each file for X configuration
+
+#include ".xconf/urxvt.xconf"
+
+! EOF

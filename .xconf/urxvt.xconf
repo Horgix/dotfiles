@@ -1,3 +1,10 @@
+! HGXonf
+! by Alexis 'Horgix' Chotard
+! https://bitbucket.org/Horgix/
+
+! urxvt.xconf for X
+! URXVT configuration
+
 ! ==================
 !   Global Settings
 ! ==================
@@ -14,7 +21,7 @@ URxvt*geometry:             80x30
 
 ! - Fonts
 URxvt*font:                 xft:DejaVu Sans Mono:size=8
-!URxvt*boldfont:             xft:DejaVu Sans Mono:bold:size=10
+URxvt*boldfont:             xft:DejaVu Sans Mono:bold:size=10
 !URxvt.boldItalicFont:       xft:DejaVu Sans Mono:italic:size=10
 !URxvt*font:                 xft:Iconsolata:size=14
 
@@ -29,15 +36,6 @@ URxvt*scrollBar:            false
 ! ================
 !  Per extensions
 ! ===============
-!lperl-ext-common:      default
-!Urxvt.perl-ext:             font-size
-!Urxvt.keysym.C-equal:       perl:font:increase
-!Urxvt.keysym.C-minus:       perl:font:increase
-URxvt.perl-ext-common:      font-size
-URxvt.keysym.C-Up:          perl:font-size:increase
-URxvt.keysym.C-Down:        perl:font-size:decrease
-URxvt.keysym.C-S-Up:        perl:font-size:incglobal
-URxvt.keysym.C-S-Down:      perl:font-size:decglobal
 
 ! ==============
 !     Colors
@@ -83,16 +81,6 @@ URxvt*override-redirect:    false
 URxvt*borderLess:           false
 URxvt*internalBorder:       0
 URxvt*externalBorder:       0
-
-URxvt.font: xft:monaco:size=10
-
-!- Urvt.perl-ext-common:       ...,font-size
-Urxvt.keysym.Control-Up:         ls
-!- Urxvt.keysym.C-Down:      perl:font-size:decglobal
-
-URxvt.perl-lib:                     xft:monaco
-!- URxvt.keysym.Control-Up:      perl:font:increment
-!- URxvt.keysym.Control-Down:    perl:font:decrement
-
-URxvt.perl-ext-common:  default,font
 */
+
+! EOF
