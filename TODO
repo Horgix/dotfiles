@@ -1,6 +1,6 @@
-[ ] Add shell-config
-[ ] Add vim config
-[ ] Create and add an install script
+[/] INSTALL
+    [X] Create and add an install script
+    [ ] NCurses version
 
 [/] ZSH
     [ ] Add directory informations ? (number of files, size, etc...)
@@ -9,3 +9,18 @@
     [ ] Remove tty number ?
     [ ] Return value : impossible to compute its length ?
     [ ] Move the return value just before WD when the problem is solved
+
+[ ] SHELLS
+    [ ] Add shell-config
+    [ ] Create something to export personnal infos
+
+[ ] VIM
+    [ ] Add vim config
+
+[/] BASH
+    [ ] Improve prompt
+    [ ] Add awesome functionnalities like zsh
+
+[/] GIT
+    [ ] Make name and email depend on user (no more static)
+
