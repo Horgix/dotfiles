@@ -1,3 +1,6 @@
+[/] Global
+    [ ] Maybe merge bash and zsh in the shells branch ?
+
 [/] INSTALL
     [X] Create and add an install script
     [ ] NCurses version
@@ -13,6 +16,7 @@
 [ ] SHELLS
     [ ] Add shell-config
     [ ] Create something to export personnal infos
+    [ ] Transform lock and keymap scripts into shell functions
 
 [ ] VIM
     [ ] Add vim config
@@ -23,4 +27,3 @@
 
 [/] GIT
     [ ] Make name and email depend on user (no more static)
-
