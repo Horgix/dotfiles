@@ -26,3 +26,5 @@ $sysinfos\
 $timeinfos\
 $wd
 $secondline"
+
+# EOF

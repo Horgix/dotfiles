@@ -9,3 +9,5 @@ function rl {
     hash -r
     source ~/.bashrc
 }
+
+# EOF

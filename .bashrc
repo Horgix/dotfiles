@@ -24,3 +24,5 @@ if [ -f ~/.extra-paths ]; then
 fi
 
 true
+
+# EOF
