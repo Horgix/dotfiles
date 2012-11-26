@@ -1,3 +1,10 @@
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
+
+# mylock.sh for SHELLS
+# Defines a personnal mylock function for i3 lock
+
 #! /bin/sh
 
 get_lock_path()
@@ -11,7 +18,10 @@ get_lock_path()
     fi
 }
 
-get_lock_path
-i3lock -c 000000 -i $lockscreen_path
+function mylock()
+{
+    get_lock_path
+    i3lock -c 000000 -i $lockscreen_path
+}
 
 # EOF
