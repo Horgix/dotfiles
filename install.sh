@@ -1,3 +1,10 @@
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
+
+# install.sh for INSTALL
+# Installs the configuration by creating symlinks
+
 #! /bin/sh
 
 Color_reset='\e[0;0m'
@@ -20,9 +27,9 @@ BPurple='\e[1;35m'      # Bold Purple
 BCyan='\e[1;36m'        # Bold Cyan
 BWhite='\e[1;37m'       # Bold White
 
-to_install=`ls -A . | grep -Ev 'TODO|README|install.sh|.git'`
+files_to_install=`ls -A . | grep -Ev 'TODO|README|install.sh|.git'`
 
-for file in $to_install; do
+for file in $files_to_install; do
     echo -e "${Yellow}\nInstalling $file...${Color_reset}"
     target=~/$file
     src=`pwd`/$file
@@ -32,7 +39,6 @@ for file in $to_install; do
         if [ -z $replace ]; then
             replace="Y"
         fi
-        echo $replace
         if [ $replace = "Y" ] || [ $replace = "y" ]; then
             echo "Removing $target..."
             rm -R ~/$file
@@ -44,9 +50,20 @@ for file in $to_install; do
             echo -e "${BRed}$file skipped."
         fi
     else
-        echo "Creating Symlink $target on $src..."
-        ln -is `pwd`/$file ~/
-        echo -e "${BGreen}Symlink created."
+        echo -n "$target doesn't exist. Create it ? (Y/n) : "
+        read create
+        if [ -z $create ]; then
+            create="Y"
+        fi
+        if [ $create = "Y" ] || [ $create = "y" ]; then
+            echo "Creating Symlink $target on $src..."
+            ln -is `pwd`/$file ~/
+            echo -e "${BGreen}Symlink created."
+        else
+            echo -e "${BRed}$file skipped."
+        fi
     fi
     echo -en ${Color_reset}
 done
+
+# EOF
