@@ -1,6 +1,9 @@
-# Script from Samuel "Staphylo" Angebault :
-# https://bitbucket.org/Staphylo/
-# Modified for personnal convenience by Alexis "Horgix" Chotard
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
+
+# keymap.sh for SCRIPTS
+# Change keymap by looping through a given set of keymap (us and fr here)
 
 #!/bin/bash
 
@@ -8,7 +11,7 @@ keymaps=('fr' 'us')
 
 layout=$(setxkbmap -query | grep "layout" | grep -Eo "[^ ]*$")
 variant=$(setxkbmap -query | grep "variant" | grep -Eo "[^ ]*$")
-current=
+current=""
 next=0
 loop=0
 keynum=${#keymaps}
@@ -34,3 +37,5 @@ while [[ $loop < 2 ]]; do
     done
     loop=$(($loop + 1))
 done
+
+# EOF

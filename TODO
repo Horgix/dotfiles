@@ -1,5 +1,6 @@
 [/] Global
     [ ] Maybe merge bash and zsh in the shells branch ?
+    [ ] Find a better place for keymap.sh
 
 [/] INSTALL
     [X] Create and add an install script
