@@ -2,8 +2,8 @@
 # by Alexis 'Horgix' Chotard
 # https://bitbucket.org/Horgix/
 
-# mkcd.zsh for SHELLS
-# mkcd function which mkdir a directory and cd into it
+# mkcd.sh for SHELLS
+# Defines a mkcd function which mkdir a directory and cd into it
 
 function mkcd
 {
