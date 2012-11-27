@@ -17,6 +17,7 @@
     [ ] Add shell-config
     [ ] Create something to export personnal infos
     [ ] Transform lock and keymap scripts into shell functions
+    [ ] Have a look on notify-send
 
 [ ] VIM
     [ ] Add vim config
