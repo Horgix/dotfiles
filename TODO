@@ -19,6 +19,9 @@
     [ ] Transform lock and keymap scripts into shell functions
     [ ] Have a look on notify-send
 
+[ ] i3
+    [ ] Add a wget to get the wallpapers for lock.sh
+
 [ ] VIM
     [ ] Add vim config
 
