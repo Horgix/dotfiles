@@ -1,6 +1,9 @@
-# prompt.zsh for TSIALIE zsh configuration
-# By Alexis 'Horgix' Chotard
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
 
+# prompt.zsh for ZSH
+# Full zsh prompt configuration
 
 # precmd : stuff that need to be refreshed before each prompt display
 precmd ()
@@ -33,7 +36,7 @@ precmd ()
     local WD_len=${#${(%):-$WD}}
     local WD_FULL_len=${#${(%):-$WD_FULL}}
 
-    # Truncate the path if it's too long to hold on a single line
+    # Truncates the path if it's too long to hold on a single line
 
     WD_NEWLEN=0
     FILLBAR=""
@@ -81,7 +84,6 @@ setprompt ()
     LL_CORNER=${altchar[m]:--}
     LR_CORNER=${altchar[j]:--}
 
-    ###
     # See if we can use colors.
 
     autoload colors zsh/terminfo
@@ -129,22 +131,6 @@ $SECOND_LINE\
     export RPROMPT='$RINFOS_FULL'
 }
 
-# Enables/disables bold
-bold=$'%{\e[1m%}'
-nobold=$'%{\e[22m%}'
-
-# Resets all styles
-reset=$'%{\e[0m%}'
-# hc = Host color
-# sc = Separator color
-# dc = Dir color
-# pc = Prompt color
-hc=$'%{\e[31m%}'
-sc=$'%{\e[32m%}'
-dc=$'%{\e[33m%}'
-pc=$'%{\e[34m%}'
-
-l2="$pc> $reset"
-l1_end="$pc%D %*$hc%(?.. [$pc%?$hc])$n$%$WD_truncated"
-
 setprompt
+
+# EOF

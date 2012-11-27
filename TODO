@@ -19,6 +19,7 @@
     [ ] Create something to export personnal infos
     [ ] Transform lock and keymap scripts into shell functions
     [ ] Have a look on notify-send
+    [ ] Regroup bash and zsh history in a history_all directory
 
 [ ] i3
     [ ] Add a wget to get the wallpapers for lock.sh

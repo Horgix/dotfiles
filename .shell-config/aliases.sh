@@ -90,5 +90,6 @@ alias veille='z; sudo pm-suspend'
 alias mygcc='gcc -Wall -Wextra -std=c99 -pedantic'
 alias py='python2'
 alias conf='cd ~/.config-horgix'
+alias dh='dirs -v'
 
 # EOF
