@@ -89,7 +89,7 @@ alias hop2='hop ; cd ./check/check_42sh'
 alias veille='z; sudo pm-suspend'
 alias mygcc='gcc -Wall -Wextra -std=c99 -pedantic'
 alias py='python2'
-alias conf='cd ~/.config-horgix'
+alias conf='cd ~/.hgxonf'
 alias dh='dirs -v'
 
 # EOF
