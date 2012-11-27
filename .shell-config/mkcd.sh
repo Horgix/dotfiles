@@ -5,7 +5,8 @@
 # mkcd.zsh for SHELLS
 # mkcd function which mkdir a directory and cd into it
 
-function mkcd {
+function mkcd
+{
     nocorrect mkdir -p "$1" && cd "$1"
 }
 
