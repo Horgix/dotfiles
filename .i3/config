@@ -23,7 +23,7 @@ set $lmod Mod1
 
 # Personnal binds
 bindsym $lmod+k exec /home/horgix/.myscripts/keymap.sh
-bindsym $lmod+w exec urxvt -name wicd-curses -title wicd -e wicd-curses
+#bindsym $lmod+w exec urxvt -name wicd-curses -title wicd -e wicd-curses
 #    ; urxvt -name QNetsoul -title QNetSoul -e QNetSoul'
 
 # Font for window titles. Will also be used by the bar unless a different font
