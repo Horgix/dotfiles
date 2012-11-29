@@ -6,7 +6,7 @@
 # Full zsh prompt configuration
 
 # precmd : stuff that need to be refreshed before each prompt display
-precmd ()
+function precmd ()
 {
     # Refresh VCS infos (used for GIT in our case)
     vcs_info
@@ -48,31 +48,18 @@ precmd ()
     # Truncates the working directory string
     WD_truncated="%$WD_NEWLEN<...<$WD%<<"
 
-    SYSINFOS="%B$PR_CYAN%n%b$PR_YELLOW@%B$PR_CYAN%M%b$PR_YELLOW:%l(%L)"
-    # Refresh the old values and apply the SHIFTs on fancy stuff around it
-    WD_FULL=%b$PR_CYAN$SHIFT_IN$PRE_WD$SHIFT_OUT%B$PR_BLUE$WD_truncated%b$PR_CYAN$SHIFT_IN$POST_WD$SHIFT_OUT
-    SYSINFOS_FULL=$SHIFT_IN$PRE_SYSINFOS$SHIFT_OUT$SYSINFOS%b$PR_CYAN$SHIFT_IN$POST_SYSINFOS$SHIFT_OUT
+    # Refresh the old values, apply colors  and apply the SHIFTs on fancy stuff around it
 
+    SYSINFOS="%B$COL_SYSINFOS%n%b$COL_INFOS@%B$COL_SYSINFOS%M%b$COL_INFOS:%l(%L)"
+    WD_FULL=%b$COL_LINES$SHIFT_IN$PRE_WD$SHIFT_OUT%B$COL_WD$WD_truncated%b$COL_LINES$SHIFT_IN$POST_WD$SHIFT_OUT
+    SYSINFOS_FULL=$SHIFT_IN$PRE_SYSINFOS$SHIFT_OUT$SYSINFOS%b$COL_LINES$SHIFT_IN$POST_SYSINFOS$SHIFT_OUT
     # RINFOS ; Random informations displayed on the RPROMPT
-    SECOND_LINE="$SHIFT_IN$LL_CORNER$SHIFT_OUT$GIT_INFOS%B$PR_BLUE> %b"
-    RINFOS_FULL="%B%S$PR_RED$RET%s$PR_GREEN$TIME %b$PR_YELLOW$DATE%b$PR_CYAN$SHIFT_IN$LR_CORNER$SHIFT_OUT$PR_NO_COLOR"
+    SECOND_LINE="$SHIFT_IN$LL_CORNER$SHIFT_OUT$GIT_INFOS%B$COL_PROMPT> %b"
+    RINFOS_FULL="%B%S$PR_RED$RET%s$COL_TIME$TIME %b$COL_INFOS$DATE%b$COL_LINES$SHIFT_IN$LR_CORNER$SHIFT_OUT$PR_NO_COLOR"
 }
 
-# Stuff that only needs to be set once (when a new instance of zsh is ran)
-setprompt ()
+function prompt_load_special_chars ()
 {
-    setopt prompt_subst
-    setopt extended_glob
-    # VCS Support
-    autoload -Uz vcs_info
-
-    # Format the vcs infos to only get the git branch
-    zstyle ':vcs_info:*' actionformats \
-        '%F{13}%F{13}%b%F{11}|%F{9}%a%F{11}%f'
-    zstyle ':vcs_info:*' formats \
-        '%F{13}%F{5}#%b%F{14}%f'
-    zstyle ':vcs_info:*' enable git hg
-
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
     SET_CHARSET="%{$terminfo[enacs]%}"
@@ -83,19 +70,71 @@ setprompt ()
     UR_CORNER=${altchar[k]:--}
     LL_CORNER=${altchar[m]:--}
     LR_CORNER=${altchar[j]:--}
+}
 
+function prompt_load_vcs_infos ()
+{
+    # VCS Support
+    autoload -Uz vcs_info
+    # Format the vcs infos to only get the git branch
+    zstyle ':vcs_info:*' actionformats \
+        '%F{13}%F{13}%b%F{11}|%F{9}%a%F{11}%f'
+    zstyle ':vcs_info:*' formats \
+        '%F{13}%F{5}#%b%F{14}%f'
+    zstyle ':vcs_info:*' enable git hg
+}
+
+function prompt_load_default_colors()
+{
+    COL_SYSINFOS=$PR_CYAN   # SYSINFOS Color
+    COL_WD=$PR_BLUE         # Working Directory Color
+    COL_INFOS=$PR_YELLOW    # Color of secondary Infos (separator, date, etc)
+    COL_LINES=$PR_CYAN      # Global Color (Lines, etc)
+    COL_TIME=$PR_GREEN      # Hour color
+    COL_PROMPT=$PR_BLUE     # Prompt color
+}
+
+function prompt_load_avalon_colors()
+{
+    COL_SYSINFOS=$PR_CYAN   # SYSINFOS Color
+    COL_WD=$PR_BLUE         # Working Directory Color
+    COL_INFOS=$PR_YELLOW    # Color of secondary Infos (separator, date, etc)
+    COL_LINES=$PR_RED       # Global Color (Lines, etc)
+    COL_TIME=$PR_GREEN      # Hour color
+    COL_PROMPT=$PR_BLUE     # Prompt color
+}
+
+function prompt_load_colors ()
+{
     # See if we can use colors.
-
     autoload colors zsh/terminfo
+
     if [[ "$terminfo[colors]" -ge 8 ]]; then
         colors
     fi
     for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-        #eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-        #eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
         eval PR_$color='%{$fg[${(L)color}]%}'
+        #eval PR_BOLD_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
     done
     PR_NO_COLOR="%{$terminfo[sgr0]%}"
+
+    # Set the colors depending on the hostname
+    if [ $HOST = "annwvyn" ]; then
+        prompt_load_avalon_colors
+    else
+        prompt_load_default_colors
+    fi
+}
+
+# Stuff that only needs to be set once (when a new instance of zsh is ran)
+function prompt_setprompt ()
+{
+    setopt prompt_subst
+    setopt extended_glob
+
+    prompt_load_special_chars
+    prompt_load_vcs_infos
+    prompt_load_colors
 
     # Working directory
     WD="%~"
@@ -131,6 +170,6 @@ $SECOND_LINE\
     export RPROMPT='$RINFOS_FULL'
 }
 
-setprompt
+prompt_setprompt
 
 # EOF
