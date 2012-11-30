@@ -119,7 +119,7 @@ function prompt_load_colors ()
     PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
     # Set the colors depending on the hostname
-    if [ $HOST = "annwvyn" ]; then
+    if [ $HOST = "avalon" ]; then
         prompt_load_avalon_colors
     else
         prompt_load_default_colors
