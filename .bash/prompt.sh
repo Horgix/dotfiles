@@ -5,26 +5,31 @@
 # prompt.sh for BASH
 # Basic bash prompt with some colors
 
-bold='\[\e[1m\]'    # Enables bold
-nobold='\[\e[22m\]' # Disables bold
+function prompt_setprompt ()
+{
+    local bold='\[\e[1m\]'    # Enables bold
+    local nobold='\[\e[22m\]' # Disables bold
 
-reset='\[\e[0m\]'   # Resets all styles
+    local reset='\[\e[0m\]'   # Resets all styles
 
-hc='\[\e[36m\]'     # Host color
-sc='\[\e[33m\]'     # Separator color
-wc='\[\e[34m\]'     # Working Directory color
-gc='\[\e[32m\]'     # Global Informations color
-pc='\[\e[34m\]'     # Prompt color
+    local hc='\[\e[36m\]'     # Host color
+    local sc='\[\e[33m\]'     # Separator color
+    local wc='\[\e[34m\]'     # Working Directory color
+    local gc='\[\e[32m\]'     # Global Informations color
+    local pc='\[\e[34m\]'     # Prompt color
 
-sysinfos="$bold$hc\u$sc@$hc\H"
-timeinfos="$nobold$gc [\D{%H:%M}]"
-wd="$bold$wc\w"
-secondline="$pc> $reset"
+    local sysinfos="$bold$hc\u$sc@$hc\H"
+    local timeinfos="$nobold$gc [\D{%H:%M}]"
+    local wd="$bold$wc\w"
+    local secondline="$pc> $reset"
 
-export PS1="
+    export PS1="
 $sysinfos\
 $timeinfos\
 $wd
 $secondline"
+}
+
+prompt_setprompt
 
 # EOF
