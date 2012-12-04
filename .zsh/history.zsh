@@ -5,7 +5,7 @@
 # history.zsh for ZSH
 # History related parameters
 
-HISTFILE=~/.history_zsh
+HISTFILE=~/.history_all/history_zsh
 HISTSIZE=100000
 SAVEHIST=100000
 
