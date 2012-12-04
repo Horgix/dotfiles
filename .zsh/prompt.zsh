@@ -96,11 +96,11 @@ function prompt_load_default_colors()
 
 function prompt_load_avalon_colors()
 {
-    COL_SYSINFOS=$PR_CYAN   # SYSINFOS Color
+    COL_SYSINFOS=$PR_GREEN  # SYSINFOS Color
     COL_WD=$PR_BLUE         # Working Directory Color
     COL_INFOS=$PR_YELLOW    # Color of secondary Infos (separator, date, etc)
-    COL_LINES=$PR_RED       # Global Color (Lines, etc)
-    COL_TIME=$PR_GREEN      # Hour color
+    COL_LINES=$PR_GREEN     # Global Color (Lines, etc)
+    COL_TIME=$PR_CYAN       # Hour color
     COL_PROMPT=$PR_BLUE     # Prompt color
 }
 
