@@ -1,4 +1,13 @@
-[/] Global
+===============================================================================
+       _   _  ______  _____  _   _ _____           _____ ___  ____   ___  
+      | | | |/ ___\ \/ / _ \| \ | |  ___|         |_   _/ _ \|  _ \ / _ \ 
+      | |_| | |  _ \  / | | |  \| | |_     _____    | || | | | | | | | | |
+      |  _  | |_| |/  \ |_| | |\  |  _|   |_____|   | || |_| | |_| | |_| |
+      |_| |_|\____/_/\_\___/|_| \_|_|               |_| \___/|____/ \___/ 
+                                                                          
+===============================================================================
+
+[ ] Global
     [ ] Maybe merge bash and zsh in the shells branch ?
     [ ] Find a better place for keymap.sh
 
@@ -6,7 +15,7 @@
     [X] Create and add an install script
     [ ] NCurses version
 
-[/] ZSH
+[ ] ZSH
     [ ] Add directory informations ? (number of files, size, etc...)
     [ ] Show background job count ?
     [ ] Fix SHLVL : Minus one ? Hostname dependant ?
@@ -14,12 +23,12 @@
     [ ] Return value : impossible to compute its length ?
     [ ] Move the return value just before WD when the problem is solved
 
-[ ] SHELLS
-    [ ] Add shell-config
+[/] SHELLS
+    [X] Add shell-config
     [ ] Create something to export personnal infos
     [ ] Transform lock and keymap scripts into shell functions
     [ ] Have a look on notify-send
-    [ ] Regroup bash and zsh history in a history_all directory
+    [X] Regroup bash and zsh history in a history_all directory
 
 [ ] i3
     [ ] Add a wget to get the wallpapers for lock.sh
@@ -27,9 +36,13 @@
 [ ] VIM
     [ ] Add vim config
 
-[/] BASH
+[ ] BASH
     [ ] Improve prompt
     [ ] Add awesome functionnalities like zsh
+    [ ] Improve history (and put it in ~/.history_all/history_bash)
 
-[/] GIT
+[ ] GIT
+    [ ] Make name and email depend on user (no more static)
+
+[ ] SLRN
     [ ] Make name and email depend on user (no more static)
