@@ -17,6 +17,9 @@ export LANG="$LC_ALL"
 # Set TERMINAL for i3-sensible-terminal call
 export TERMINAL=urxvt
 
+# Set NTTPSERVER for slrn (it's the newsgroup it will read from)
+export NNTPSERVER="news.epita.fr"
+
 # Set the pager according to the following priority :
 # most > less > more > None
 if [ -x "`which most 2> /dev/null`" ]; then
