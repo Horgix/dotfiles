@@ -13,16 +13,6 @@ for file in ~/.zsh/*; do
     source $file;
 done
 
-if [ -d ~/.local.zsh/ ]; then
-    for file in ~/.local.zsh/*; do
-        source $file;
-    done
-fi
-
-if [ -f ~/.extra-paths ]; then
-    source ~/.extra-paths
-fi
-
 true
 
 # EOF
