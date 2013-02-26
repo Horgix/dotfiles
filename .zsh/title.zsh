@@ -1,4 +1,8 @@
-# title.zsh
+# HGXonf
+# # by Alexis 'Horgix' Chotard
+# # https://bitbucket.org/Horgix/
+#
+# title.zsh for ZSH
 # Title bar handling
 
 function set_title {
@@ -26,3 +30,5 @@ function title_preexec {
 autoload -U add-zsh-hook
 add-zsh-hook precmd title_precmd
 add-zsh-hook preexec title_preexec
+
+# EOF

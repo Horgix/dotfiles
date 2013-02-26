@@ -3,9 +3,10 @@
 # https://bitbucket.org/Horgix/
 
 # rl.sh for BASH
-# Defines 'rl' function which reload bash configuration
+# Defines a 'rl' function which reload bash configuration
 
-function rl {
+function rl
+{
     hash -r
     source ~/.bashrc
 }

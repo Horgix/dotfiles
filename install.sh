@@ -27,7 +27,7 @@ BPurple='\e[1;35m'      # Bold Purple
 BCyan='\e[1;36m'        # Bold Cyan
 BWhite='\e[1;37m'       # Bold White
 
-files_to_install=`ls -A . | grep -Ev 'TODO|README|install.sh|.git'`
+files_to_install=`ls -A . | grep -Ev 'TODO|README|install.sh|.git$'`
 
 for file in $files_to_install; do
     echo -e "${Yellow}\nInstalling $file...${Color_reset}"

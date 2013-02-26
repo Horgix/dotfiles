@@ -1,3 +1,10 @@
+# HGXonf
+# by Alexis 'Horgix' Chotard
+# https://bitbucket.org/Horgix/
+
+# completion.zsh for ZSH
+# Set completion options
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -25,3 +32,5 @@ compinit
 unsetopt beep
 unsetopt extendedglob
 unsetopt nomatch
+
+# EOF
