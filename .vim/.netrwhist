@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/horgix/.hgxonf/.shell-config'
+let g:netrw_dirhist_2='/home/horgix/.shell-config'
+let g:netrw_dirhist_3='/home/horgix/work/ing1/TC/cake-bitbucket/tests/tests/lexical'
