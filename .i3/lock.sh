@@ -9,17 +9,18 @@
 
 function lock()
 {
-    # Get the lockscreen path
+    # Lockscreens images path
     local lockscreen_path=~/.i3/lockScreens/
-    local VGA1_connected=`xrandr | grep 'VGA1 connected' | wc -l`
-    if [ $VGA1_connected -eq 1 ]; then
-        lockscreen_path=${lockscreen_path}lockscreen-1920x1080.png
-    else
-        lockscreen_path=${lockscreen_path}lockscreen-1024x600.png
-    fi
+    # Lockscreens images base name
+    local lockscreen_basename=apertureLockscreen-
+    # Get the current screen resolution
+    local resolution=`xrandr | awk '/[*]/{print $1}'`
 
-    # Lock the screen
-    i3lock -c 000000 -i $lockscreen_path
+    local lockscreen=${lockscreen_path}${lockscreen_basename}${resolution}.png
+
+    echo $lockscreen
+    # Lock the screen using the appropriate wallpaper
+    i3lock -c 000000 -i $lockscreen
 }
 
 lock
