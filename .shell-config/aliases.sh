@@ -86,10 +86,43 @@ alias myssh2='ssh horgix@epimeros.org'
 alias z='sh ~/.i3/lock.sh'
 alias hop='/home/horgix/work/42sh/42wish-bitbucket-git/'
 alias hop2='hop ; cd ./check/check_42sh'
+alias p='pingtest'
+alias z='sh ~/.i3/lock.sh'
 alias veille='z; sudo pm-suspend'
 alias mygcc='gcc -Wall -Wextra -std=c99 -pedantic'
 alias py='python2'
 alias conf='cd ~/.hgxonf'
 alias dh='dirs -v'
+alias mute='amixer sset Master 0 mute'
 
+
+alias hop='/home/horgix/work/ing1/projects/corewar/mcc-git'
+alias hop2='/home/horgix/work/ing1/projects/TC/cake-git'
+
+# My ssh aliases
+alias myssh='ssh horgix@horgix.fr'
+alias myssh2='ssh horgix@epimeros.org'
+alias rakka='ssh horgix@rakka.prologin.org'
+
+# Easy mount aliases
+alias mymount='sudo mount /dev/sdb1 /media'
+alias myumount='sudo umount /media'
+
+# Fun aliases
+alias starwars='traceroute 216.81.59.173 -m 255'
+
+# Tar gZip Dir (Z) / Tar bzip2 (J) Dir
+function tzd { tar czvf "$1.tar.gz" "$1"; }
+function tjd { tar cjvf "$1.tar.bz2" "$1"; }
+
+# Set color on standard commands
+alias grep="grep --color"
+
+# Clean *.pyc in a directory
+alias nopyc="find -name '*.pyc' -print -delete"
+
+# If iproute2 is present, do not use ifconfig!
+if which ip &>/dev/null; then
+    function ifconfig { echo 'You should use iproute2!'; }
+fi
 # EOF
