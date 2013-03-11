@@ -33,14 +33,16 @@ alias pingtest='ping -c 3 www.google.com'
 alias z='sh ~/.i3/lock.sh'
 alias hop='/home/horgix/work/ing1/projects/corewar'
 alias hop2='hop ; cd ./check/check_42sh'
+alias p='pingtest'
+alias z='sh ~/.i3/lock.sh'
 alias veille='z; sudo pm-suspend'
 alias mygcc='gcc -Wall -Wextra -std=c99 -pedantic'
 alias py='python2'
 alias conf='cd ~/.hgxonf'
 alias dh='dirs -v'
 alias mute='amixer sset Master 0 mute'
-alias pit='/afs/epitech.net/users/all/yaka/public/corewar/pit'
-alias track='/afs/epitech.net/users/all/yaka/public/corewar/track'
+alias hop='/home/horgix/work/ing1/projects/corewar/mcc-git'
+alias hop2='/home/horgix/work/ing1/projects/TC/cake-git'
 
 # My ssh aliases
 alias myssh='ssh horgix@horgix.fr'
@@ -69,4 +71,14 @@ if which ip &>/dev/null; then
     function ifconfig { echo 'You should use iproute2!'; }
 fi
 
+# Set color on standard commands
+alias grep="grep --color"
+
+# Clean *.pyc in a directory
+alias nopyc="find -name '*.pyc' -print -delete"
+
+# If iproute2 is present, do not use ifconfig!
+if which ip &>/dev/null; then
+    function ifconfig { echo 'You should use iproute2!'; }
+fi
 # EOF

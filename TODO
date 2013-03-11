@@ -35,8 +35,10 @@
 [ ] i3
     [ ] Add a wget to get the wallpapers for lock.sh
 
-[ ] VIM
-    [ ] Add vim config
+[/] VIM
+    [X] Add vim config
+    [ ] Clear config
+    [ ] What about .vim/.netrwhist ?
 
 [ ] BASH
     [ ] Improve prompt

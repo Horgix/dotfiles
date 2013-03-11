@@ -81,7 +81,6 @@ set relativenumber
 set laststatus=2
 
 " Format the status line
-" This status line comes from Pierre Bourdon's vimrc
 set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
 
 " Enhance command line completion
@@ -164,10 +163,10 @@ set gdefault
 set tabstop=8
 
 " The number of spaces inserted when you press tab
-set softtabstop=4
+set softtabstop=2
 
 " The number of spaces inserted/removed when using < or >
-set shiftwidth=4
+set shiftwidth=2
 
 " Insert spaces instead of tabs
 set expandtab
