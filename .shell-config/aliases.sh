@@ -44,6 +44,10 @@ alias mute='amixer sset Master 0 mute'
 alias hop='/home/horgix/work/ing1/projects/corewar/mcc-git'
 alias hop2='/home/horgix/work/ing1/projects/TC/cake-git'
 
+# Keymap Aliases
+alias fr='setxkbmap fr'
+alias us='setxkbmap us'
+
 # My ssh aliases
 alias myssh='ssh horgix@horgix.fr'
 alias myssh2='ssh horgix@epimeros.org'
