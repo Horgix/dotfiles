@@ -30,40 +30,44 @@ BWhite='\e[1;37m'       # Bold White
 files_to_install=`ls -A . | grep -Ev 'TODO|README|install.sh|.git$|.gitignore'`
 
 for file in $files_to_install; do
-    echo -e "${Yellow}\nInstalling $file...${Color_reset}"
-    target=~/$file
-    src=`pwd`/$file
+  echo -e "${Yellow}\nInstalling $file...${Color_reset}"
+  target=~/$file
+  src=`pwd`/$file
+  if [ -e $target ] || [ -L $target ]; then
     if [ -e $target ]; then
-        echo -n "$target already exists. Replace it ? (Y/n) : "
-        read replace
-        if [ -z $replace ]; then
-            replace="Y"
-        fi
-        if [ $replace = "Y" ] || [ $replace = "y" ]; then
-            echo "Removing $target..."
-            rm -R ~/$file
-            echo -e "${BRed}$target removed.${Color_reset}"
-            echo "Creating Symlink $target on $src..."
-            ln -is `pwd`/$file ~/
-            echo -e "${BGreen}Symlink created."
-        else
-            echo -e "${BRed}$file skipped."
-        fi
-    else
-        echo -n "$target doesn't exist. Create it ? (Y/n) : "
-        read create
-        if [ -z $create ]; then
-            create="Y"
-        fi
-        if [ $create = "Y" ] || [ $create = "y" ]; then
-            echo "Creating Symlink $target on $src..."
-            ln -is `pwd`/$file ~/
-            echo -e "${BGreen}Symlink created."
-        else
-            echo -e "${BRed}$file skipped."
-        fi
+      echo -n "$target already exists. Replace it ? (Y/n) : "
+    elif [ -L $target ]; then
+      echo -n "$target already exists and is a Symlink. Replace it ? (Y/n) : "
     fi
-    echo -en ${Color_reset}
+    read replace
+    if [ -z $replace ]; then
+      replace="Y"
+    fi
+    if [ $replace = "Y" ] || [ $replace = "y" ]; then
+      echo "Removing $target..."
+      rm -R ~/$file
+      echo -e "${BRed}$target removed.${Color_reset}"
+      echo "Creating Symlink $target on $src..."
+      ln -is `pwd`/$file ~/
+      echo -e "${BGreen}Symlink created."
+    else
+      echo -e "${BRed}$file skipped."
+    fi
+  else
+    echo -n "$target doesn't exist. Create it ? (Y/n) : "
+    read create
+    if [ -z $create ]; then
+      create="Y"
+    fi
+    if [ $create = "Y" ] || [ $create = "y" ]; then
+      echo "Creating Symlink $target on $src..."
+      ln -is `pwd`/$file ~/
+      echo -e "${BGreen}Symlink created."
+    else
+      echo -e "${BRed}$file skipped."
+    fi
+  fi
+  echo -en ${Color_reset}
 done
 
 # EOF
