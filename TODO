@@ -34,6 +34,13 @@
 
 [ ] i3
     [ ] Add a wget to get the wallpapers for lock.sh
+    [ ] Make i3status-wrapper daemonize to avoid launching it every second
+    [ ] i3status : make a new wrapper
+      [ ] Make it call ~/.i3/time-to-color.py
+      [ ] Add "$USER@$HOSTNAME"
+      [ ] Add $(setxkbmap -query | grep 'layout'\
+        [ ] | awk -e '{ print $2 }' | tr 'a-z' 'A-Z')
+
 
 [/] VIM
     [X] Add vim config
