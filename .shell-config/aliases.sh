@@ -74,15 +74,3 @@ alias nopyc="find -name '*.pyc' -print -delete"
 if which ip &>/dev/null; then
     function ifconfig { echo 'You should use iproute2!'; }
 fi
-
-# Set color on standard commands
-alias grep="grep --color"
-
-# Clean *.pyc in a directory
-alias nopyc="find -name '*.pyc' -print -delete"
-
-# If iproute2 is present, do not use ifconfig!
-if which ip &>/dev/null; then
-    function ifconfig { echo 'You should use iproute2!'; }
-fi
-# EOF
