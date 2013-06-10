@@ -5,30 +5,30 @@
 # aliases.sh for SHELLS
 # Defines a lot of useful aliases
 
-# Just some nocorrect aliases
+# Nocorrect
 alias cp="nocorrect cp"
 alias mkdir="nocorrect mkdir"
 alias mv="nocorrect mv"
 
-# Vim aliases
+# Vim
 alias v="vim"
 alias e="vim"
 alias vmi="vim"
 
-# ls aliases
+# ls
 alias l="ls -lah --color"
 alias ls="ls -lh --color"
 alias ll="ls -lh --color"
 alias la="ls -lah --color"
 
-# XRANDR aliases
+# Xrandr
 alias xrandrVGA169only='xrandr --output VGA1 --mode 1920x1080 --output LVDS1 --off'
 alias xrandrVGA43only='xrandr --output VGA1 --mode 1280x1024 --output LVDS1 --off'
 alias xrandrBoth169='xrandr --output VGA1 --mode 1920x1080 --left-of LVDS1 --output LVDS1 --mode 1024x600'
 alias xrandrBoth43='xrandr --output VGA1 --mode 1280x1024 --left-of LVDS1 --output LVDS1 --mode 1024x600'
 alias xrandrLVDSOnly='xrandr --output VGA1 --off --output LVDS1 --mode 1024x600'
 
-# Convenience aliases
+# Convenience
 alias pingtest='ping -c 3 www.google.com'
 alias z='sh ~/.i3/lock.sh'
 alias hop='/home/horgix/work/ing1/projects/corewar'
@@ -44,20 +44,20 @@ alias mute='amixer sset Master 0 mute'
 alias hop='/home/horgix/work/ing1/projects/corewar/mcc-git'
 alias hop2='/home/horgix/work/ing1/projects/TC/cake-git'
 
-# Keymap Aliases
+# Keymap
 alias fr='setxkbmap fr'
 alias us='setxkbmap us'
 
-# My ssh aliases
+# My ssh
 alias myssh='ssh horgix@horgix.fr'
 alias myssh2='ssh horgix@epimeros.org'
 alias rakka='ssh horgix@rakka.prologin.org'
 
-# Easy mount aliases
+# Easy mount
 alias mymount='sudo mount /dev/sdb1 /media'
 alias myumount='sudo umount /media'
 
-# Fun aliases
+# Fun
 alias starwars='traceroute 216.81.59.173 -m 255'
 
 # Tar gZip Dir (Z) / Tar bzip2 (J) Dir
