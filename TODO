@@ -41,6 +41,7 @@
       [ ] Add "$USER@$HOSTNAME"
       [ ] Add $(setxkbmap -query | grep 'layout'\
         [ ] | awk -e '{ print $2 }' | tr 'a-z' 'A-Z')
+    [ ] i3status: display current SSH key from swap_rsa
 
 
 [/] VIM
