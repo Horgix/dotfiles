@@ -46,8 +46,8 @@ alias p='pingtest'
 alias mute='amixer sset Master 0 mute'
 
 # Directories
-alias hop='/home/horgix/work/ing1/projects/corewar'
-alias hop2='hop ; cd ./check/check_42sh'
+alias work='cd /home/horgix/work/ing1/projects'
+alias hop='work; cd .'
 alias dh='dirs -v'
 alias conf='cd ~/.hgxonf'
 
@@ -60,8 +60,8 @@ alias fr='setxkbmap fr'
 alias us='setxkbmap us'
 
 # SSH
-alias myssh='ssh horgix@horgix.fr'
-alias myssh2='ssh horgix@epimeros.org'
+alias horgixfr='ssh horgix@horgix.fr'
+alias epimeros='ssh horgix@epimeros.org'
 alias rakka='ssh horgix@rakka.prologin.org'
 
 # Fun
