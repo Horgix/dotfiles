@@ -32,6 +32,7 @@
     [ ] Transform lock and keymap scripts into shell functions
     [ ] Have a look on notify-send
     [X] Regroup bash and zsh history in a history_all directory
+    [ ] When install.sh is ran, merge old history files to the new ones
 
 [ ] i3
     [ ] Add a wget to get the wallpapers for lock.sh
