@@ -21,6 +21,7 @@ alias grep="grep --color"
 # Development
 alias mygcc='gcc -Wall -Wextra -std=c99 -pedantic'
 alias py='python2'
+alias g='git'
 
 # mount
 alias mymount='sudo mount /dev/sdb1 /media'
