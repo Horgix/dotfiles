@@ -17,6 +17,8 @@
 
 [alias]
     st = status
+    co = checkout
+    cm = commit
     poule = pull
 
 # EOF
