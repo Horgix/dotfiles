@@ -21,7 +21,9 @@
     cm = commit
     c = commit -e
     au = add -u
+    l = log
     prettylog = log --decorate=full --graph
+    pl = prettylog
     poule = pull
 
 # EOF
