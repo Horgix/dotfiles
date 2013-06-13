@@ -19,6 +19,9 @@
     st = status
     co = checkout
     cm = commit
+    c = commit -e
+    au = add -u
+    prettylog = log --decorate=full --graph
     poule = pull
 
 # EOF
