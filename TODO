@@ -25,6 +25,7 @@
         [ ] Remove tty number ?
         [ ] Return value : impossible to compute its length ?
         [ ] Move the return value just before WD when the problem is solved
+    [ ] man zshoptions
 
 [/] SHELLS
     [X] Add shell-config
