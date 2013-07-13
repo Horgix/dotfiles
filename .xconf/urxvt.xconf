@@ -2,7 +2,7 @@
 ! by Alexis 'Horgix' Chotard
 ! https://bitbucket.org/Horgix/
 
-! urxvt.xconf for X
+! urxvt.xconf for X11
 ! URXVT configuration
 
 ! ==================
@@ -15,8 +15,7 @@ URxvt*inheritPixmap:        true
 !URxvt*transparent:          true
 !URxvt*tintColor:            #AAAAAA
 
-! - Default geometry in number of characters
-! - [colums]x[lines]
+! - Default geometry in number of characters : [colums]x[lines]
 URxvt*geometry:             80x30
 
 ! - Fonts
@@ -28,14 +27,6 @@ URxvt*boldfont:             xft:DejaVu Sans Mono:bold:size=10
 ! - Scroll Bar
 URxvt*saveLines:            100000
 URxvt*scrollBar:            false
-!URxvt*scrollBar_right:      true
-!URxvt*scrollBar_floating:   true
-!URxvt*scrollColor:          #285577
-!URxvt*scrollstyle:          plain
-
-! ================
-!  Per extensions
-! ===============
 
 ! ==============
 !     Colors
@@ -43,16 +34,14 @@ URxvt*scrollBar:            false
 
 ! -- Background color
 URxvt*background:           black
-
 ! -- Foreground color
 URxvt*foreground:           white
-
 ! - Cursor color
 URxvt*cursorColor:          #DCDCCC
 
 
 ! - 8/16 Colors
-/*
+
 URxvt*color0: #101010
 URxvt*color1: #f13a21
 URxvt*color2: #93f91d
@@ -69,18 +58,5 @@ URxvt*color12: #0071ff
 URxvt*color13: #ef0051
 URxvt*color14: #4bb8fd
 URxvt*color15: #a020f0
-!*/
-
-/*URxvt*loginShell:           true
-URxvt*scrollBar:            false
-
-URxvt*saveLines:            1165535
-URxvt*cursorBlink:          false
-URxvt*urgentOnBell:         true
-URxvt*override-redirect:    false
-URxvt*borderLess:           false
-URxvt*internalBorder:       0
-URxvt*externalBorder:       0
-*/
 
 ! EOF
