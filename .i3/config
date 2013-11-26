@@ -22,7 +22,7 @@ set $mod Mod4
 set $lmod Mod1
 
 # Personnal binds
-bindsym $lmod+k exec /home/horgix/.myscripts/keymap.sh
+bindsym $lmod+k exec ~/.myscripts/keymap.sh
 #bindsym $lmod+w exec urxvt -name wicd-curses -title wicd -e wicd-curses
 #    ; urxvt -name QNetsoul -title QNetSoul -e QNetSoul'
 for_window [class="track" instance="track"] floating enable
