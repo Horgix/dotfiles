@@ -6,24 +6,26 @@
 # Basic global git configuration
 
 [user]
-    name = Alexis 'Horgix' Chotard
-    email = alexis.horgix.chotard@gmail.com
+  name = Alexis 'Horgix' Chotard
+  email = alexis.horgix.chotard@gmail.com
 
 [http]
-    postBuffer = 524288000
+  postBuffer = 524288000
 
 [color]
-    ui = true
+  ui = true
 
 [alias]
-    st = status
-    co = checkout
-    cm = commit
-    c = commit -e
-    au = add -u
-    l = log
-    prettylog = log --decorate=full --graph
-    pl = prettylog
-    poule = pull
+  pu = push origin master
+  po = pull --rebase
+  st = status
+  co = checkout
+  cm = commit
+  c = commit -e
+  au = add -u
+  l = log
+  prettylog = log --decorate=full --graph
+  pl = prettylog
+  poule = po
 
 # EOF
