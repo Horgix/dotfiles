@@ -1,5 +1,21 @@
 #! /bin/sh
 
+function filenotfound_test()
+{
+  local FAILS=0
+
+  for file in $*; do
+    if ! [ -e $file ]; then
+      echo "Error: $file does not exists"
+      FAILS=$(($fails + 1))
+    fi
+  done
+
+  if [ $FAILS -ne 0 ]; then
+    echo "$FAILS errors found"
+    exit 1
+  fi
+}
 
 function swapRSA
 {
@@ -15,11 +31,11 @@ function swapRSA
   local DIFF_HOST2_PUB
 
 
-  /bin/sh ~/.shell-config/filenotfound_test.sh $RSA $RSA_PUB  \
-                                                $RSA.$HOST1 $RSA_PUB.$HOST1 \
-                                                $RSA.$HOST2 $RSA_PUB.$HOST2
+  filenotfound_test.sh $RSA $RSA_PUB  \
+                        $RSA.$HOST1 $RSA_PUB.$HOST1 \
+                        $RSA.$HOST2 $RSA_PUB.$HOST2
   if [ $? -ne 0 ]; then
-      return 1
+    return 1
   fi
 
 
