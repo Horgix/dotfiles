@@ -19,8 +19,8 @@ URxvt*inheritPixmap:        true
 URxvt*geometry:             80x30
 
 ! - Fonts
-URxvt*font:                 xft:DejaVu Sans Mono:size=8
-URxvt*boldfont:             xft:DejaVu Sans Mono:bold:size=10
+URxvt*font:                 xft:Inconsolata:size=12
+URxvt*boldfont:             xft:Inconsolata:bold:size=14
 !URxvt.boldItalicFont:       xft:DejaVu Sans Mono:italic:size=10
 !URxvt*font:                 xft:Iconsolata:size=14
 
