@@ -33,4 +33,6 @@ elif [ -x "`which more 2> /dev/null`" ]; then
     export PAGER=more
 fi
 
+PATH=$HOME/.myscripts/:$PATH
+
 # EOF
