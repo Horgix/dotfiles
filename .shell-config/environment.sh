@@ -12,6 +12,7 @@ export EDITOR=vim
 export LC_ALL=en_US.utf8
 
 # Set default Language to en_US from LC_ALL
+export LANGUAGE="$LC_ALL"
 export LANG="$LC_ALL"
 
 # Set TERMINAL for i3-sensible-terminal call
