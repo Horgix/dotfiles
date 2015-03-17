@@ -14,11 +14,11 @@ function lock()
     # Lockscreens images base name
     local lockscreen_basename=apertureLockscreen-
     # Get the current screen resolution
-    local resolution=`xrandr | awk '/[*]/{print $1}'`
+    local resolution=`xrandr | awk '/[*]/{print $1}' | head -n 1`
 
     local lockscreen=${lockscreen_path}${lockscreen_basename}${resolution}.png
 
-    echo $lockscreen
+    #echo $lockscreen
     # Lock the screen using the appropriate wallpaper
     i3lock -c 000000 -i $lockscreen
 }
