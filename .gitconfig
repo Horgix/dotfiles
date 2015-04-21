@@ -28,4 +28,7 @@
   pl = prettylog
   poule = po
 
+[push]
+  default = simple
+
 # EOF
