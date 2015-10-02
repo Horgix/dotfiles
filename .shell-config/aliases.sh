@@ -79,3 +79,20 @@ alias starwars='traceroute 216.81.59.173 -m 255'
 #if which ip &>/dev/null; then
 #    function ifconfig { echo 'You should use iproute2!'; }
 #fi
+
+alias bssh="ssh -o 'ProxyCommand ssh alcho@ssh.lvl.smile.fr -p 443 -q nc %h %p'"
+alias dog='highlight -O ansi'
+
+pssh () {
+  proxy_str=$(echo $http_proxy | cut -f 3 -d /)
+  proxy_auth=$(echo $proxy_str | awk -F @ '{print $1}')
+  proxy_host=$(echo $proxy_str | awk -F @ '{print $2}')
+  if [ -n "$proxy_auth" ]
+  then
+    auth_flag="-P $(echo $proxy_auth | tr -d '@')"
+  fi
+  ssh -o "ProxyCommand proxytunnel -p $proxy_host $auth_flag -d %h:%p" $@
+}
+
+alias ssh='TERM=rxvt ssh'
+
