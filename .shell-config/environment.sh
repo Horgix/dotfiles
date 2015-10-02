@@ -8,8 +8,9 @@
 # Set the default EDITOR to vim
 export EDITOR=vim
 
+# TODO : use localectl instead
 # Set default encoding to UTF8 settings
-export LC_ALL=en_US.utf8
+export LC_ALL=en_US.UTF-8
 
 # Set default Language to en_US from LC_ALL
 export LANGUAGE="$LC_ALL"
@@ -34,6 +35,8 @@ elif [ -x "`which more 2> /dev/null`" ]; then
     export PAGER=more
 fi
 
-PATH=$HOME/.myscripts/:$PATH
+export PATH=$HOME/.myscripts:$HOME/docker-helpers:$PATH
+export SCREENSHOTS=/home/horgix/screenshots/
+export SMILEUSER=alcho
 
 # EOF
