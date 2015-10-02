@@ -1,4 +1,4 @@
-rofi.modi:                 window,run,ssh
+rofi.modi:                 run,ssh,window
 rofi.opacity:              30
 rofi.width:                100
 rofi.lines:                5
@@ -39,7 +39,7 @@ rofi.run-command:          {cmd}
 rofi.run-list-command:     
 rofi.run-shell-command:    {terminal} -e {cmd}
 rofi.disable-history:      true
-rofi.levenshtein-sort:     false
+rofi.levenshtein-sort:     true
 rofi.case-sensitive:       false
 rofi.sidebar-mode:         false
 rofi.lazy-filter-limit:    5000
