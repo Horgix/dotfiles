@@ -1,0 +1,52 @@
+#! /bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "You need to provide at least the screenshot name"
+  exit 1
+fi
+
+# Take screenshot
+SCNAME=$1
+case $SCNAME in
+  *.png)
+    ;;
+  *)
+    SCNAME=${SCNAME}.png
+esac
+SCPATH="$SCREENSHOTS/$SCNAME"
+scrot -s $SCPATH
+echo $? >> /var/log/horgix/sc.log
+
+# Get xsel content if needed
+if [ `basename $0` = "scx" ]; then
+  XSEL=`xsel`
+else
+  XSEL=""
+fi
+
+# Get comments if needed
+shift
+if ! [ $# -eq 0 ]; then
+  COMMENTS="$@"
+else
+  COMMENTS=""
+fi
+
+if [ -z $COMMENTS ]; then
+  if ! [ -z $XSEL ]; then
+    COMMENTS=$XSEL
+  else
+    COMMENTS=${SCNAME%%.*}
+  fi
+fi
+
+# Write comments
+COMMENTSPATH="$SCREENSHOTS/screenshotsdesc.md"
+echo "Screenshot path : $SCPATH
+xsel : $XSEL
+Comments : $COMMENTS" | tee /var/log/horgix/sc.log
+
+if ! [ -z $XSEL ]; then
+  echo "$XSEL" >> $COMMENTSPATH
+fi
+echo "![$COMMENTS](screenshots/$SCNAME)" >> $COMMENTSPATH
