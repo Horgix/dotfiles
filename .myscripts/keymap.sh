@@ -28,7 +28,8 @@ while [[ $loop < 2 ]]; do
     for map in "${keymaps[@]}"; do
         if [ $next == 1 ]; then
             setxkbmap $map
-            notify-send -t 1 "Keymap Changed" "$map"
+            notify-send -t 400 "Keymap Changed" "$map"
+            /usr/bin/espeak -v mb/mb-en1 -s 180 -p 50 "Keymap changed"
             exit 0
         fi
         if [[ "$map" = "$current" ]]; then
